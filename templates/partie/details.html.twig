@@ -1,18 +1,15 @@
-
-
-
 <table border="3">
     <tr>
     <td>id</td>
     <td>nom</td>
-
+    <td>Desc</td>
 </tr>
-{% for c in show %}
+{% for c in showbyid %}
 <tr>
     <td>{{c.id}}</td>
     <td>{{c.nom}}</td>
-    <td><form action="{{path('app_listbyid',{'id':c.id})}}"><button type="submit" >Details</button></form></td>
-
+    <td>{{c.description}}</td>
+   
 </tr>
 {% endfor %}
 </table>

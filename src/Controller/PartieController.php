@@ -25,4 +25,16 @@ class PartieController extends AbstractController
             'show' => $partie
         ]);
     }
+
+    #[Route('/list/{id}', name: 'app_listbyid')]
+    public function listid(PartieRepository $partieRepo, $id): Response
+    {
+
+        $partiebyid[] = $partieRepo->find($id);
+        //var_dump($carbyid) . die();
+        return $this->render('partie/details.html.twig', [
+            'showbyid' => $partiebyid
+        ]);
+    }
+
 }
