@@ -38,6 +38,12 @@ class JoueurRepository extends ServiceEntityRepository
             $this->getEntityManager()->flush();
         }
     }
+    public function getOrderbyScore()
+    {
+        $qb = $this->createQueryBuilder('x')
+            ->orderBy('x.score', 'DESC');
+        return $qb->getQuery()->getResult();
+    }
 
 //    /**
 //     * @return Joueur[] Returns an array of Joueur objects

@@ -1,15 +1,14 @@
 <?php
 
 namespace App\Controller;
-
+use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use App\Repository\PartieRepository;
 use App\Repository\JoueurRepository;
+use Symfony\Component\HttpFoundation\Request;
 use App\Entity\Joueur;
 use App\Form\JoueurFormType;
-
-use Symfony\Component\Routing\Annotation\Route;
 
 class PartieController extends AbstractController
 {
@@ -29,7 +28,7 @@ class PartieController extends AbstractController
             'show' => $partie
         ]);
     }
-
+/*
     #[Route('/list/{id}', name: 'app_listbyid')]
     public function listid(PartieRepository $partieRepo, $id): Response
     {
@@ -56,4 +55,24 @@ class PartieController extends AbstractController
         ]);
     }
 
+
+    #[Route('/order', name: 'app_order')]
+    public function order(JoueurRepository $joueurrepo, Request $req): Response
+    {
+        $joueur = $joueurrepo->findAll();
+        $order = $joueurrepo->getOrderbyScore();
+       // $max = $joueurrepo->maxKilometrage();
+       // $form = $this->createForm(SearchType::class);
+      //  $form->handleRequest($req);
+    /*    if ($form->isSubmitted()) {
+            $dataform = $form->getData();
+
+            $result = $carRepository->searchCar($dataform);
+            // var_dump($result) . die();
+
+            return $this->render('partie/order.html.twig', array('order' => $order, 'cars' => $result, 'max' => $max, 'search' => $form->createView()));
+        }*/
+       // return $this->render('partie/order.html.twig', array('order' => $order, 'joueurrepo' => $joueurrepo,)); 
+        
+    //}
 }
